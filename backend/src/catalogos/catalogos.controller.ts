@@ -1,4 +1,17 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
+import { CatalogosService } from './catalogos.service';
 
-@Controller('catalogos')
-export class CatalogosController {}
+@Controller('api/catalogos')
+export class CatalogosController {
+  constructor(private readonly catalogosService: CatalogosService) {}
+
+  @Get()
+  obtenerListaCatalogos() {
+    return this.catalogosService.obtenerListaCatalogos();
+  }
+
+  @Get(':nombreCatalogo')
+  obtenerCatalogo(@Param('nombreCatalogo') nombreCatalogo: string) {
+    return this.catalogosService.obtenerCatalogo(nombreCatalogo);
+  }
+}
