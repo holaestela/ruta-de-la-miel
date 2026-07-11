@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApiariosModule } from './apiarios/apiarios.module';
 import { CatalogosModule } from './catalogos/catalogos.module';
+import { ColmenasModule } from './colmenas/colmenas.module';
 
 @Module({
   imports: [
@@ -31,6 +32,8 @@ import { CatalogosModule } from './catalogos/catalogos.module';
     ApiariosModule,
 
     CatalogosModule,
+
+    ColmenasModule,
   ],
   controllers: [AppController],
   providers: [AppService],
