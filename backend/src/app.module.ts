@@ -7,6 +7,8 @@ import { AppService } from './app.service';
 import { ApiariosModule } from './apiarios/apiarios.module';
 import { CatalogosModule } from './catalogos/catalogos.module';
 import { ColmenasModule } from './colmenas/colmenas.module';
+import { DispositivosModule } from './dispositivos/dispositivos.module';
+import { IotModule } from './iot/iot.module';
 
 @Module({
   imports: [
@@ -34,6 +36,10 @@ import { ColmenasModule } from './colmenas/colmenas.module';
     CatalogosModule,
 
     ColmenasModule,
+
+    DispositivosModule,
+
+    IotModule,
   ],
   controllers: [AppController],
   providers: [AppService],
