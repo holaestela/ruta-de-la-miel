@@ -8,8 +8,9 @@ export class IotService {
 
   async insertarLectura(datos: CrearLecturaIotDto) {
     try {
-     const query = `
-  SELECT public.fn_insertar_lectura_iot(
+        //cabi de query por el de la funcion avanzada 
+ const query = `
+  SELECT public.fn_insertar_lectura_iot_avanzada(
     $1::varchar,
     CURRENT_TIMESTAMP::timestamp,
     $2::numeric,
@@ -17,17 +18,26 @@ export class IotService {
     $4::numeric,
     $5::numeric,
     $6::numeric,
+    $7::varchar,
+    $8::varchar,
+    $9::varchar,
+    $10::text,
     TRUE::boolean
   ) AS lectura_id;
 `;
-      const valores = [
-        datos.device_uid,
-        datos.temperatura ?? null,
-        datos.humedad ?? null,
-        datos.peso ?? null,
-        datos.bateria ?? null,
-        datos.senal ?? null,
-      ];
+// e agregaron nuevos valores para estos campos añadodos 
+     const valores = [
+  datos.device_uid,
+  datos.temperatura ?? null,
+  datos.humedad ?? null,
+  datos.peso ?? null,
+  datos.bateria ?? null,
+  datos.senal ?? null,
+  datos.origen_comunicacion ?? 'wifi',
+  datos.gateway_uid ?? null,
+  datos.lote_sincronizacion ?? null,
+  datos.observaciones ?? null,
+];
 
       const resultado = await this.dataSource.query(query, valores);
 
