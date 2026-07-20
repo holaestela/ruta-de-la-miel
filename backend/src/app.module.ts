@@ -9,6 +9,7 @@ import { CatalogosModule } from './catalogos/catalogos.module';
 import { ColmenasModule } from './colmenas/colmenas.module';
 import { DispositivosModule } from './dispositivos/dispositivos.module';
 import { IotModule } from './iot/iot.module';
+import { AlertasModule } from './alertas/alertas.module';
 
 @Module({
   imports: [
@@ -40,6 +41,8 @@ import { IotModule } from './iot/iot.module';
     DispositivosModule,
 
     IotModule,
+
+    AlertasModule,
   ],
   controllers: [AppController],
   providers: [AppService],
